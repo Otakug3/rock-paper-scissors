@@ -1,4 +1,4 @@
-rock-paper-scissors
+Rock, Paper, Scissors
 ===================
 
 Play Rock, Paper, Scissors!

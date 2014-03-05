@@ -1,0 +1,6 @@
+code/up/rps/game/Play.class
+code/up/rps/choices/Result.class
+code/up/rps/choices/Rock.class
+code/up/rps/choices/Choice.class
+code/up/rps/choices/Paper.class
+code/up/rps/choices/Scissors.class
