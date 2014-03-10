@@ -1,45 +1,35 @@
 package code.up.rps.game;
 
-import code.up.rps.choices.Choice;
 import code.up.rps.choices.Paper;
 import code.up.rps.choices.Rock;
 import code.up.rps.choices.Scissors;
-import java.util.Scanner;
+import code.up.rps.choices.parser.ChoiceParser;
+import code.up.rps.choices.parser.DefaultParser;
+import code.up.rps.choices.random.FairRandomChoice;
+import code.up.rps.choices.random.RandomChoice;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- * 
+ *
  * @author Peter C
  */
 public class Play {
-    
-    private static final Scanner readInput = new Scanner(System.in);
-    
+
+    private static final Logger log = LoggerFactory.getLogger(Play.class);
+
     public static void main(String[] args) {
-        System.out.println("Welcome to Rock, Paper, Scissors!");
-        System.out.println("_________________________________");
-        System.out.println("");
-        System.out.println("");
-        System.out.println("Your Go - pick Rock, Paper or Scissors:");
+        log.info("Welcome to Rock, Paper, Scissors!");
+        log.info("_________________________________");
+        log.info("");
+        log.info("");
         
-        String playersChoice = readInput.nextLine();
-        System.out.println("You picked "+ playersChoice);
+        ChoiceParser parser = new DefaultParser();
+        RandomChoice randomGenerator = new FairRandomChoice(new Rock(), new Paper(), new Scissors());
+        Game game = new StandardGame(parser, randomGenerator);
         
-        try {
-            Choice playersRealChoice = parse(playersChoice);
-            
-        } catch (IllegalArgumentException ex) {
-            System.out.println("Sorry, that doesn't make any sense.");
+        while (true){
+            game.play();
         }
-    }
-    
-    private static Choice parse(String playersChoice){
-        if (playersChoice.equalsIgnoreCase("rock")){
-            return new Rock();
-        } else if (playersChoice.equalsIgnoreCase("scissors")){
-            return new Scissors();
-        } else if (playersChoice.equalsIgnoreCase("paper")){
-            return new Paper();
-        }
-        throw new IllegalArgumentException("I don't understand what you said. Silly you.");
     }
 }

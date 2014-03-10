@@ -16,4 +16,9 @@ public class Scissors implements Choice {
         
         return Result.LOSE;
     }
+    
+    @Override
+    public String getName(){
+        return "Scissors";
+    }
 }

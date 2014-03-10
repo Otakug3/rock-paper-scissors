@@ -7,4 +7,5 @@ package code.up.rps.choices;
 public interface Choice {
     
     Result seeTheResult(Choice choice);
+    String getName();
 }

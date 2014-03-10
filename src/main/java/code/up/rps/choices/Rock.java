@@ -16,4 +16,9 @@ public class Rock implements Choice {
         
         return Result.LOSE;
     }
+    
+    @Override
+    public String getName(){
+        return "Rock";
+    }
 }
