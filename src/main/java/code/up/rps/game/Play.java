@@ -19,10 +19,10 @@ public class Play {
     private static final Logger log = LoggerFactory.getLogger(Play.class);
 
     public static void main(String[] args) {
-        log.info("Welcome to Rock, Paper, Scissors!");
-        log.info("_________________________________");
-        log.info("");
-        log.info("");
+        log.info(java.util.ResourceBundle.getBundle("Bundle").getString("WELCOME TO ROCK, PAPER, SCISSORS!"));
+        log.info(java.util.ResourceBundle.getBundle("Bundle").getString("_________________________________"));
+        log.info(java.util.ResourceBundle.getBundle("Bundle").getString(""));
+        log.info(java.util.ResourceBundle.getBundle("Bundle").getString(""));
         
         ChoiceParser parser = new DefaultParser();
         RandomChoice randomGenerator = new FairRandomChoice(new Rock(), new Paper(), new Scissors());

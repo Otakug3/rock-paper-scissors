@@ -19,6 +19,6 @@ public class Rock implements Choice {
     
     @Override
     public String getName(){
-        return "Rock";
+        return java.util.ResourceBundle.getBundle("Bundle").getString("ROCK");
     }
 }

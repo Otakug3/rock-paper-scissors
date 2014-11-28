@@ -19,6 +19,6 @@ public class Scissors implements Choice {
     
     @Override
     public String getName(){
-        return "Scissors";
+        return java.util.ResourceBundle.getBundle("Bundle").getString("SCISSORS");
     }
 }

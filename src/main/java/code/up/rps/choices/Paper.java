@@ -19,6 +19,6 @@ public class Paper implements Choice {
     
     @Override
     public String getName(){
-        return "Paper";
+        return java.util.ResourceBundle.getBundle("Bundle").getString("PAPER");
     }
 }

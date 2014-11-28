@@ -13,13 +13,13 @@ public class DefaultParser implements ChoiceParser {
     
     @Override
     public Choice parse(String input){
-        if (input.equalsIgnoreCase("rock")) {
+        if (input.equalsIgnoreCase(java.util.ResourceBundle.getBundle("Bundle").getString("ROCK"))) {
             return new Rock();
-        } else if (input.equalsIgnoreCase("scissors")) {
+        } else if (input.equalsIgnoreCase(java.util.ResourceBundle.getBundle("Bundle").getString("SCISSORS"))) {
             return new Scissors();
-        } else if (input.equalsIgnoreCase("paper")) {
+        } else if (input.equalsIgnoreCase(java.util.ResourceBundle.getBundle("Bundle").getString("PAPER"))) {
             return new Paper();
         }
-        throw new IllegalArgumentException("I don't understand what you said. Silly you.");
+        throw new IllegalArgumentException(java.util.ResourceBundle.getBundle("Bundle").getString("I DON'T UNDERSTAND WHAT YOU SAID. SILLY YOU."));
     }
 }

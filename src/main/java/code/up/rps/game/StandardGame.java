@@ -27,29 +27,30 @@ public class StandardGame implements Game {
     
     @Override
     public void play() {
-        log.info("Your Go - pick Rock, Paper or Scissors:");
+        log.info(java.util.ResourceBundle.getBundle("Bundle").getString("YOUR GO - PICK ROCK, PAPER OR SCISSORS:"));
         String playersChoice = readInput.nextLine();
-        log.info("You picked " + playersChoice);
+        log.info(java.text.MessageFormat.format(java.util.ResourceBundle.getBundle("Bundle").getString("YOU PICKED {0}"), new Object[] {playersChoice}));
 
         try {
             Choice playersRealChoice = parser.parse(playersChoice);
             Choice computersChoice = randomChoice.randomChoice(playersRealChoice);
 
-            log.info("The computer picked " + computersChoice.getName());
+            log.info(java.text.MessageFormat.format(java.util.ResourceBundle.getBundle("Bundle").getString("THE COMPUTER PICKED {0}"), new Object[] {computersChoice.getName()}));
 
             Result result = playersRealChoice.seeTheResult(computersChoice);
 
             if (result.equals(Result.WIN)) {
-                log.info("CONGRATULATIONS YOU WON!!!!!!");
+                log.info(java.util.ResourceBundle.getBundle("Bundle").getString("CONGRATULATIONS YOU WON!!!!!!"));
             } else if (result.equals(Result.TIE)) {
-                log.info("Oh it's a tie... best of three?");
+                log.info(java.util.ResourceBundle.getBundle("Bundle").getString("OH IT'S A TIE... BEST OF THREE?"));
             } else if (result.equals(Result.LOSE)) {
-                log.info("You suck. I win hahahah.");
+                log.info(java.util.ResourceBundle.getBundle("Bundle").getString("YOU SUCK. I WIN HAHAHAH."));
             }
         } catch (IllegalArgumentException ex) {
-            log.error("Sorry, that doesn't make any sense.");
+            log.error(java.util.ResourceBundle.getBundle("Bundle").getString("SORRY, THAT DOESN'T MAKE ANY SENSE."));
         } catch (Exception ex) {
-            log.error("Random error happened.", ex);
+            log.error(java.util.ResourceBundle.getBundle("Bundle").getString("RANDOM ERROR HAPPENED."), ex);
+            
         }
     }
     
